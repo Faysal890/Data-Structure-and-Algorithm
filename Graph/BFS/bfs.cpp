@@ -42,7 +42,7 @@ int main() {
     vector<vector<int>>graph;
     graph = generateGraph();
     vector<bool>visited(graph.size(),false);
-    cout << "Following Breadth First Search :\n";
+    cout << "Following Breadth First Search (starting from vertex 0) :\n";
     for(int i=0; i<graph.size(); i++) {
         if(!visited[i]) {
             bfs(graph, visited, i);
