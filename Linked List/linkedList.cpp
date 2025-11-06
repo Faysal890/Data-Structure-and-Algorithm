@@ -27,7 +27,7 @@ public:
         head = nullptr;
         tail = nullptr;
     }
-    void push_back(int x) {
+    void push_back(int x) {                                 // O(1)
         if(head == nullptr) {
             Node *newNode = new Node(x);
             head = newNode;
@@ -37,12 +37,12 @@ public:
         tail->next = new Node(x);
         tail = tail->next;
     }
-    void push_front(int x) {
+    void push_front(int x) {                                // O(1)
         Node *newNode = new Node(x, head);
         head = newNode;
         if(tail == nullptr) tail = newNode;
     }
-    void insert(int pos, int val) {
+    void insert(int pos, int val) {                         // O(n)
         if(pos < 0 || !head) {
             cout << "Invalid Position\n";
             return;
@@ -58,7 +58,7 @@ public:
         temp->next = new Node(val, temp->next);
         if(temp == tail) tail = temp->next;
     }
-    void pop_back() {
+    void pop_back() {                                       // O(n)        
         if(tail == nullptr) {
             cout << "Invalid Operation\n";
             return;
@@ -77,7 +77,7 @@ public:
         free(tail);
         tail = temp;
     }
-    void pop_front() {
+    void pop_front() {                                      // O(1)
         if(head == nullptr) {
             cout << "Invalid Operation\n";
             return;
@@ -91,7 +91,7 @@ public:
         head = head->next;
         free(temp);
     }
-    void print() {
+    void print() {                                          // O(n)
         Node *temp = head;
         while(temp) {
             cout << temp->val << ' ';
@@ -99,7 +99,7 @@ public:
         }
         cout << '\n';
     }
-    int find(int x) {
+    int find(int x) {                                      // O(n)      
         int pos = -1;
         Node *temp = head;
         while(temp) {
